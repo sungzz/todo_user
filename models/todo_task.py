@@ -23,3 +23,8 @@ class TodoTask(models.Model):
                 raise ValidationError(
                     'Only the responsible can do this!')
         return super(TodoTask, self).do_toggle_done()    
+
+
+    # inherit for record log
+    _name = 'todo.task'
+    _inherit = ['todo.task', 'mail.thread']
